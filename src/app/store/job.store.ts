@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { JobModel } from '../model/job';
+import { JobModel, SkillModel } from '../model/job';
 
 @Injectable()
 export class JobStore {
@@ -101,70 +101,41 @@ export class JobStore {
     },
   ];
   private _checkJobList: string[] = [];
-  private _soloSkillList: string[] = [
-    'ランパート',
-    'ブルワーク',
-    'センチネル',
-    'インターベンション',
-    'ホーリーシェルトロン',
-    'インビンシブル',
-    'ランパート',
-    'スリル・オブ・バトル',
-    'ヴェンジェンス',
-    '原初の血気',
-    '原初の猛り',
-    'エクリブリウム',
-    'ホルムギャング',
-    'ランパート',
-    'シャドウウォール',
-    'ダークマインド',
-    'ブラックナイト',
-    'オブレーション',
-    'リビングデッド',
-    'ランパート',
-    'カモフラージュ',
-    'ネビュラ',
-    'ハート・オブ・コランダム',
-    'ボーライド',
-    'インドゥルゲンティア',
-    'アサイズ',
-    'リタージー・オブ・ベル(ダメージトリガー)',
-    'アクアヴェール',
-    'ディヴァインベニゾン',
-    'テトラグラマトン',
-    'ベネディクション',
-    'アスペクト・ヘリオス',
-    '星天対抗',
-    'アーサリースター(星の支配者)',
-    'ホロスコープ',
-    'マクロコスモス(最小)',
-    'ディグニティ(最小)',
-    'エクザルテーション',
-    '星天交差',
-    'アスペクト・ベネフィク',
-    '光の囁き',
-    '不撓不屈の策',
-    'フェイブレッシング',
-    'コンソレイション',
-    '転化',
-    '秘策',
-    '生命活性法',
-    '生命回生法',
-    '鼓舞激励の策',
-    '深謀遠慮の策',
-    'ゾーエ',
-    'ピュシスII(追加効果)',
-    'イックソコレ',
-    'ペプシス(エウクラシア・ディアグノシス)',
-    'プネウマ',
-    'ドルオコレ',
-    'タウロコレ',
-    'エウクラシア・ディアグノシス',
-    'ハイマ',
-    'リゾーマタ',
-    'ハート・オブ・ストーン',
-    'シェルトロン',
-    '原初の直感',
+  private _skillList: SkillModel[] = [];
+  private _selectedSkillList: SkillModel[] = [];
+  private _initialSelectSkillList: string[] = [
+    'リプライザル',
+    'パッセージ・オブ・アームズ',
+    'ディヴァインヴェール',
+    'シェイクオフ',
+    'ダークミッショナリー',
+    'ハート・オブ・ライト',
+    'テンパランス',
+    'アサイラム',
+    '運命の輪',
+    'ニュートラルセクト',
+    'フェイイルミネーション',
+    '野戦治療の陣',
+    '疾風怒濤の計',
+    '展開戦術',
+    '士気高揚の策',
+    'サモン・セラフィム',
+    'エーテルフロー',
+    'ホーリズム',
+    'ケーラコレ',
+    'エウクラシア・プログノシス',
+    'パンハイマ',
+    '牽制',
+    'マントラ',
+    'トルバドゥール',
+    '地神のミンネ',
+    'タクティシャン',
+    'ウェポンブレイク',
+    '守りのサンバ',
+    'インプロビゼーションフィニッシュ(踊りの激情0)',
+    'アドル',
+    'バマジク',
+    'LB3',
   ];
 
   constructor() {}
@@ -181,8 +152,24 @@ export class JobStore {
     return this._jobList;
   }
 
-  public get soloSkillList(): string[] {
-    return this._soloSkillList;
+  public get skillList(): SkillModel[] {
+    return this._skillList;
+  }
+
+  public set skillList(value: SkillModel[]) {
+    this._skillList = value;
+  }
+
+  public get selectedSkillList(): SkillModel[] {
+    return this._selectedSkillList;
+  }
+
+  public set selectedSkillList(value: SkillModel[]) {
+    this._selectedSkillList = value;
+  }
+
+  public get initialSelectSkillList(): string[] {
+    return this._initialSelectSkillList;
   }
 
   public getTankList(): JobModel[] {

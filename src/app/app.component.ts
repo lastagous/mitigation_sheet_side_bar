@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
         this.gasStore.existSettingSheet =
           response.data.option.existSettingSheet;
         this.jobStore.checkJobList = response.data.option.viewJobList;
+        this.jobStore.skillList = response.data.option.skillList;
         if (response.data.option.error) {
           this.messageService.add({
             severity: 'error',

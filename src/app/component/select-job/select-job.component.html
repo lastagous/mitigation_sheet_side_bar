@@ -47,7 +47,7 @@
   <p-checkbox
     [binary]="true"
     [(ngModel)]="isContainsSoloSkill"
-    label="個人スキルを表示する"
+    label="すべてのスキルを表示する"
   >
   </p-checkbox>
 </div>
@@ -65,8 +65,8 @@
     pButton
     pRipple
     type="button"
-    icon="pi pi-trash"
+    icon="pi pi-cog"
     class="p-button-rounded p-button-secondary hide-column-reset-button"
-    (click)="clickResetJobList()"
+    (click)="onSettingSkillClick()"
   ></button>
 </div>

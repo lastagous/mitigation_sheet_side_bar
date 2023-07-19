@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { GasStore } from 'src/app/store/gas.store';
 import { JobStore } from 'src/app/store/job.store';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { SelectSkillComponent } from '../select-skill/select-skill.component';
 
 @Component({
   selector: 'app-select-job',
@@ -10,7 +12,11 @@ import { JobStore } from 'src/app/store/job.store';
 export class SelectJobComponent {
   private _isContainsSoloSkill: boolean = false;
 
-  constructor(private _jobStore: JobStore, private gasStore: GasStore) {}
+  constructor(
+    private _jobStore: JobStore,
+    private gasStore: GasStore,
+    private dialogService: DialogService
+  ) {}
 
   public get checkJobList(): string[] {
     return this.jobStore.checkJobList;
@@ -51,12 +57,14 @@ export class SelectJobComponent {
     }
     this.gasStore.executeGasMethod('hideSelectJobColumn', {
       jobList: hideJobList,
-      skillList: this.isContainsSoloSkill ? [] : this._jobStore.soloSkillList,
+      // skillList: this.isContainsSoloSkill ? [] : this._jobStore.soloSkillList,
       isNotChecked: this._jobStore.checkJobList.length === 0,
     });
   }
 
-  public clickResetJobList() {
-    this.jobStore.checkJobList = [];
+  public onSettingSkillClick() {
+    this.dialogService.open(SelectSkillComponent, {
+      header: '表示スキルの個別設定',
+    });
   }
 }

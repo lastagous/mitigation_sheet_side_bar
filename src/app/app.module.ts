@@ -15,6 +15,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 
 import { AppComponent } from './app.component';
 import { JobStore } from './store/job.store';
@@ -25,6 +26,7 @@ import { PrintMitigationComponent } from './component/print-mitigation/print-mit
 import { DownloadSpespeComponent } from './component/download-spespe/download-spespe.component';
 import { GenerateSheetComponent } from './component/generate-sheet/generate-sheet.component';
 import { JobIconComponent } from './component/job-icon/job-icon.component';
+import { SelectSkillComponent } from './component/select-skill/select-skill.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { JobIconComponent } from './component/job-icon/job-icon.component';
     SelectJobComponent,
     GenerateSheetComponent,
     JobIconComponent,
+    SelectSkillComponent,
   ],
   imports: [
     BlockUIModule,
@@ -43,6 +46,7 @@ import { JobIconComponent } from './component/job-icon/job-icon.component';
     ButtonModule,
     CheckboxModule,
     CommonModule,
+    DynamicDialogModule,
     DividerModule,
     FormsModule,
     PanelModule,
@@ -52,7 +56,7 @@ import { JobIconComponent } from './component/job-icon/job-icon.component';
     ScrollPanelModule,
     ToastModule,
   ],
-  providers: [GasStore, JobStore, MessageService],
+  providers: [GasStore, JobStore, DialogService, MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
